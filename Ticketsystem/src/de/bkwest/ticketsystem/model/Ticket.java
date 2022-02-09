@@ -6,7 +6,7 @@ public class Ticket {
 	private int id;
 	private String status;
 	private String title;
-	private String discrition;
+	private String discription;
 	private Date start;
 	private Date end;
 	
@@ -15,7 +15,7 @@ public class Ticket {
 		this.id = id;
 		this.status = status;
 		this.title = title;
-		this.discrition = discrition;
+		this.discription = discrition;
 		this.start = start;
 		this.end = end;
 	}
@@ -40,10 +40,10 @@ public class Ticket {
 		this.title = title;
 	}
 	public String getDiscrition() {
-		return discrition;
+		return discription;
 	}
 	public void setDiscrition(String discrition) {
-		this.discrition = discrition;
+		this.discription = discrition;
 	}
 	public Date getStart() {
 		return start;
@@ -62,7 +62,7 @@ public class Ticket {
 		
 	}
 	
-	public void Zuweisung() {
+	public void allocation() {
 		
 	}
 }

@@ -38,4 +38,15 @@ public class User {
 		this.password = password;
 		this.blocked = blocked;
 	}
+	
+	public void createTicket() {
+		
+	}
+	
+	public void changeStatus() {
+			
+	}
+	public void createComment() {
+		
+	}
 }
