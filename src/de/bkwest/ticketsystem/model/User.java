@@ -5,6 +5,7 @@ public class User {
 	private String username;
 	private String password;
 	private boolean blocked;
+	private int attempts;
 	
 	public String getUserID() {
 		return userID;
@@ -29,6 +30,12 @@ public class User {
 	}
 	public void setBlocked(boolean blocked) {
 		this.blocked = blocked;
+	}
+	public int getAttempts() {
+		return attempts;
+	}
+	public void setAttempts(int attempts) {
+		this.attempts = attempts;
 	}
 	
 	public User(String userID, String username, String password, boolean blocked) {
