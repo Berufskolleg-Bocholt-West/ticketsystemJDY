@@ -38,7 +38,7 @@ public class User {
 		this.attempts = attempts;
 	}
 	
-	public User(String userID, String username, String password, boolean blocked) {
+	public User(int userID, String username, String password, boolean blocked) {
 		super();
 		this.userID = userID;
 		this.username = username;
