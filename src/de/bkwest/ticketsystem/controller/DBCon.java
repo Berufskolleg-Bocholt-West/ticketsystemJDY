@@ -8,11 +8,12 @@ import java.sql.SQLException;
 
 public class DBCon {
 
-	String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
-	String dbuser = "itam-root6";
-	String pass = "X~r3z7g5";
 
-	public static void connection(String url, String dbuser, String pass) {
+
+	public static void connection() {
+		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
+		String dbuser = "itam-root6";
+		String pass = "X~r3z7g5";
 		try {
 			Connection con = DriverManager.getConnection(url, dbuser, pass);
 			System.out.println("Verbindung erfolgreich hergestellt");
@@ -23,7 +24,10 @@ public class DBCon {
 
 	}
 
-	public static String fetchPassword(String url, String dbuser, String pass, String username) {
+	public static String fetchPassword(String username) {
+		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
+		String dbuser = "itam-root6";
+		String pass = "X~r3z7g5";
 		try {
 			Connection con = DriverManager.getConnection(url, dbuser, pass);
 			Statement st = con.createStatement();
