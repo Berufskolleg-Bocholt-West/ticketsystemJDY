@@ -1,4 +1,4 @@
-package de.bkwest.ticketsystem.model;
+package de.bkwest.ticketsystem.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
