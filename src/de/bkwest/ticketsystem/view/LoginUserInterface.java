@@ -65,9 +65,22 @@ public class LoginUserInterface extends JFrame {
 		btnLogin.setBounds(112, 149, 89, 23);
 		contentPane.add(btnLogin);
 		
+		btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+            }
+        });
+		
 		passField = new JPasswordField();
 		passField.setBounds(120, 105, 126, 20);
 		contentPane.add(passField);
+	}
+	public char[] getPassword() {
+		char[] password = passField.getPassword();
+		return password;
+	}
+	public String getUsername() {
+		String username = txtFUsername.getText();
+		return username;
 	}
 }
 
