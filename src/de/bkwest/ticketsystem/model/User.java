@@ -38,12 +38,13 @@ public class User {
 		this.attempts = attempts;
 	}
 	
-	public User(int userID, String username, String password, boolean blocked) {
+	public User(int userID, String username, String password, boolean blocked, int attempts) {
 		super();
 		this.userID = userID;
 		this.username = username;
 		this.password = password;
 		this.blocked = blocked;
+		this.attempts = attempts;
 	}
 	
 	public void createTicket() {

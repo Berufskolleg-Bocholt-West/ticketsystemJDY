@@ -1,12 +1,18 @@
 package de.bkwest.ticketsystem.controller;
 
+import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+
+import de.bkwest.ticketsystem.model.User;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBCon {
+	static ArrayList<User> allusers = new ArrayList<User>();
+
 	public static void connection() {
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
@@ -18,30 +24,32 @@ public class DBCon {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
 
-	public static String fetchPassword(String username) {
+	private int userID;
+	private String username;
+	private String password;
+	private boolean blocked;
+	private int attempts;
+
+	public static void fetchUser() {
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
 		String pass = "X~r3z7g5";
 		try {
 			Connection con = DriverManager.getConnection(url, dbuser, pass);
 			Statement st = con.createStatement();
-			String sql = ("SELECT password FROM User WHERE username = '" + username + "';");
+			String sql = ("SELECT * FROM User;");
 			ResultSet rs = st.executeQuery(sql);
-			if (rs.next()) {
-				String password2 = rs.getString("password");
-				con.close();
-				return password2;
-			} else {
-				con.close();
-				return "Username was not found";
+			while (rs.next()) {
+				User users = new User(rs.getInt("userID"), rs.getString("username"), rs.getString("passowrd"),
+						rs.getBoolean("blocked"), rs.getInt("attempts"));
+				allusers.add(users);
 			}
+			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
-		return "Something went horribly wrong! >:)";
 	}
 }
