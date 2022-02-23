@@ -25,13 +25,7 @@ public class DBCon {
 			System.out.println(e.getMessage());
 		}
 	}
-
-	private int userID;
-	private String username;
-	private String password;
-	private boolean blocked;
-	private int attempts;
-
+	
 	public static void fetchUser() {
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
