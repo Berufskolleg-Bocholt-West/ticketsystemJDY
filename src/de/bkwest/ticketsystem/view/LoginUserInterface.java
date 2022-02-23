@@ -25,7 +25,6 @@ public class LoginUserInterface extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		DBCon.fetchPassword("Test");
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
