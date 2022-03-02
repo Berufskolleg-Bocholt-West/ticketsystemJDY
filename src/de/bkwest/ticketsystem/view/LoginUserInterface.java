@@ -8,12 +8,16 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import de.bkwest.ticketsystem.controller.DBCon;
+import de.bkwest.ticketsystem.model.User;
 
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 
 public class LoginUserInterface extends JFrame {
 
@@ -65,8 +69,18 @@ public class LoginUserInterface extends JFrame {
 		txtFUsername.setColumns(10);
 
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				for (User u : DBCon.getAllusers()) {
+					if(u.getUsername().equals(txtFUsername.getText()) && u.getPassword().equals(passField.getPassword())) {
+						testLabel.setText("nichts");
+					}
+				}
+			}
+		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnLogin.setBounds(112, 149, 89, 23);
+		btnLogin.setBounds(120, 146, 89, 23);
 		contentPane.add(btnLogin);
 
 		btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +91,10 @@ public class LoginUserInterface extends JFrame {
 		passField = new JPasswordField();
 		passField.setBounds(120, 105, 126, 20);
 		contentPane.add(passField);
+		
+		JLabel testLabel = new JLabel(" ");
+		testLabel.setBounds(120, 195, 89, 22);
+		contentPane.add(testLabel);
 	}
 
 	public char[] getPassword() {
@@ -88,4 +106,5 @@ public class LoginUserInterface extends JFrame {
 		String username = txtFUsername.getText();
 		return username;
 	}
+	
 }
