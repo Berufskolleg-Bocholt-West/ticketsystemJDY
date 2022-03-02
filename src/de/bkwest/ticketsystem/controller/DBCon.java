@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBCon {
-	static ArrayList<User> allusers = new ArrayList<User>();
+	private static ArrayList<User> allusers = new ArrayList<User>();
 	
 	public static void connection() {
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
@@ -37,12 +37,20 @@ public class DBCon {
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {
 				User users = new User(rs.getInt("userID"), rs.getString("username"), rs.getString("password"),rs.getBoolean("blocked"), rs.getInt("attempts"));
-				allusers.add(users);
+				getAllusers().add(users);
 			}
 			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public static ArrayList<User> getAllusers() {
+		return allusers;
+	}
+
+	public static void setAllusers(ArrayList<User> allusers) {
+		DBCon.allusers = allusers;
 	}
 }
