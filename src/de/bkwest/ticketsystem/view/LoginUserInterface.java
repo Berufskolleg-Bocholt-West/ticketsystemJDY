@@ -67,7 +67,11 @@ public class LoginUserInterface extends JFrame {
 		txtFUsername.setBounds(120, 74, 126, 20);
 		contentPane.add(txtFUsername);
 		txtFUsername.setColumns(10);
-
+		
+		JLabel testLabel = new JLabel(" ");
+		testLabel.setBounds(120, 195, 89, 22);
+		contentPane.add(testLabel);
+		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
@@ -92,9 +96,6 @@ public class LoginUserInterface extends JFrame {
 		passField.setBounds(120, 105, 126, 20);
 		contentPane.add(passField);
 		
-		JLabel testLabel = new JLabel(" ");
-		testLabel.setBounds(120, 195, 89, 22);
-		contentPane.add(testLabel);
 	}
 
 	public char[] getPassword() {
