@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import de.bkwest.ticketsystem.controller.DBCon;
+import de.bkwest.ticketsystem.controller.*;
 import de.bkwest.ticketsystem.model.User;
 
 import javax.swing.JLabel;
@@ -76,11 +76,7 @@ public class LoginUserInterface extends JFrame {
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				for (User u : DBCon.getAllusers()) {
-					if(u.getUsername().equals(txtFUsername.getText()) && u.getPassword().equals(passField.getPassword())) {
-						testLabel.setText("nichts");
-					}
-				}
+				testLabel.setText(LoginFunction.compare(getGUIUsername(),getGUIPassword()));
 			}
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -98,12 +94,12 @@ public class LoginUserInterface extends JFrame {
 		
 	}
 
-	public char[] getPassword() {
+	public char[] getGUIPassword() {
 		char[] password = passField.getPassword();
 		return password;
 	}
 
-	public String getUsername() {
+	public String getGUIUsername() {
 		String username = txtFUsername.getText();
 		return username;
 	}
