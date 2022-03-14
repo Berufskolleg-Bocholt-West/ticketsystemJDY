@@ -94,8 +94,8 @@ public class LoginUserInterface extends JFrame {
 		
 	}
 
-	public char[] getGUIPassword() {
-		char[] password = passField.getPassword();
+	public String getGUIPassword() {
+		String password = passField.getPassword().toString();
 		return password;
 	}
 

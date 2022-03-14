@@ -7,15 +7,15 @@ import de.bkwest.ticketsystem.view.LoginUserInterface;
 
 public class LoginFunction {
 	
-	public static String compare(String usernameGUI, char[] passwordGUI) {
+	public static String compare(String usernameGUI, String passwordGUI) {
 		String output;
+		
 		for (User u : DBCon.getAllusers()) {
-			return usernameGUI;
-		//	if(u.getUsername().equals(usernameGUI) && u.getPassword().toCharArray().equals(passwordGUI)) {
-		//		return output = "success";
-		//	}else { 
-		//		return output = "failure";
-		//	}
+			System.out.println(u.getUsername());
+			System.out.println(u.getPassword());
+			if(u.getUsername().equals(usernameGUI) && u.getPassword().equals(passwordGUI)) {
+				return output = "success";
+			}
 		}
 		return output = "did not enter loop";
 	}

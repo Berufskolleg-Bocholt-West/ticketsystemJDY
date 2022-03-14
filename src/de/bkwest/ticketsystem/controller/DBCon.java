@@ -35,9 +35,9 @@ public class DBCon {
 			Statement st = con.createStatement();
 			String sql = ("SELECT * FROM User;");
 			ResultSet rs = st.executeQuery(sql);
-			while (rs.next()) {
+			while(rs.next()) {
 				User users = new User(rs.getInt("userID"), rs.getString("username"), rs.getString("password"),rs.getBoolean("blocked"), rs.getInt("attempts"));
-				getAllusers().add(users);
+				allusers.add(users);
 			}
 			con.close();
 		} catch (SQLException e) {
