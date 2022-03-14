@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import de.bkwest.ticketsystem.controller.*;
 import de.bkwest.ticketsystem.model.User;
 
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -46,6 +47,7 @@ public class LoginUserInterface extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginUserInterface() {
+		setAutoRequestFocus(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 345, 280);
 		contentPane = new JPanel();
@@ -64,7 +66,7 @@ public class LoginUserInterface extends JFrame {
 		contentPane.add(lblPassword);
 
 		txtFUsername = new JTextField();
-		txtFUsername.setBounds(120, 74, 126, 20);
+		txtFUsername.setBounds(120, 74, 120, 20);
 		contentPane.add(txtFUsername);
 		txtFUsername.setColumns(10);
 		
@@ -80,7 +82,7 @@ public class LoginUserInterface extends JFrame {
 			}
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnLogin.setBounds(120, 146, 89, 23);
+		btnLogin.setBounds(120, 146, 120, 23);
 		contentPane.add(btnLogin);
 
 		btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -89,8 +91,22 @@ public class LoginUserInterface extends JFrame {
 		});
 
 		passField = new JPasswordField();
-		passField.setBounds(120, 105, 126, 20);
+		passField.setBounds(120, 105, 120, 20);
 		contentPane.add(passField);
+		
+		JButton btnToRegister = new JButton("To Register");
+		btnToRegister.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				RegisterUserInterface registerUserInterface =new RegisterUserInterface();
+				registerUserInterface.setVisible(true);
+				LoginUserInterface.this.setVisible(false);
+				
+			}
+		});
+		btnToRegister.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnToRegister.setBounds(120, 180, 120, 23);
+		contentPane.add(btnToRegister);
 		
 	}
 
@@ -103,5 +119,4 @@ public class LoginUserInterface extends JFrame {
 		String username = txtFUsername.getText();
 		return username;
 	}
-	
 }
