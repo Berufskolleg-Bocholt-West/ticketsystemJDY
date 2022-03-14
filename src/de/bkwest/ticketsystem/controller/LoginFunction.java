@@ -11,8 +11,6 @@ public class LoginFunction {
 		String output;
 		
 		for (User u : DBCon.getAllusers()) {
-			System.out.println(u.getUsername());
-			System.out.println(u.getPassword());
 			if(u.getUsername().equals(usernameGUI) && u.getPassword().equals(passwordGUI)) {
 				return output = "success";
 			}
