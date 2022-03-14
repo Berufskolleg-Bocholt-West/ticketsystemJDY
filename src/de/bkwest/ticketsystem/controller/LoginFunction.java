@@ -14,7 +14,7 @@ public class LoginFunction {
 			if(u.getUsername().equals(usernameGUI) && u.getPassword().equals(passwordGUI)) {
 				return output = "success";
 			}else if(u.getUsername().equals(usernameGUI)){
-				u.setAttempts(+1);
+				u.setAttempts(u.getAttempts()+1);
 				DBCon.updateDB(u.getUserID(), u.isBlocked(), u.getAttempts());
 			}else if(u.getAttempts()>=3) {
 				u.setBlocked(true);
