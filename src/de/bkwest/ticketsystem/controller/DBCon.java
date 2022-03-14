@@ -45,7 +45,7 @@ public class DBCon {
 			System.out.println(e.getMessage());
 		}
 	}
-	public static boolean updateDB(int userID, boolean blocked, int attempts) {
+	public static void updateDB(int userID, boolean blocked, int attempts) {
 		//opoipopo
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
@@ -59,11 +59,13 @@ public class DBCon {
 		try {
 			Connection con = DriverManager.getConnection(url, dbuser, pass);
 			Statement st = con.createStatement();
-			String sql = ("UPDATE users SET  blocked = '"+blockedInt+", attempts = '"+attempts+"' WHERE userID = '"+userID+"';");
+			String sql = ("UPDATE User SET  blocked = "+blockedInt+", attempts = "+attempts+" WHERE userID = "+userID+";");
+			st.executeUpdate(sql);
+			con.close();
 		} catch(SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		return false;
+		
 	}
 	public static ArrayList<User> getAllusers() {
 		return allusers;
