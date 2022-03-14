@@ -13,6 +13,10 @@ public class LoginFunction {
 		for (User u : DBCon.getAllusers()) {
 			if(u.getUsername().equals(usernameGUI) && u.getPassword().equals(passwordGUI)) {
 				return output = "success";
+			}else if(u.getUsername().equals(usernameGUI)){
+				u.setAttempts(+1);
+			}else if(u.getAttempts()>=3) {
+				u.setBlocked(true);
 			}
 		}
 		return output = "did not enter loop";
