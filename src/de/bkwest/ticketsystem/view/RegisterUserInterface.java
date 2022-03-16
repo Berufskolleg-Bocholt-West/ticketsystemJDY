@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class RegisterUserInterface extends JFrame {
 
@@ -71,6 +73,14 @@ public class RegisterUserInterface extends JFrame {
 		contentPane.add(btnRegister);
 		
 		JButton btnToLogin = new JButton("to login");
+		btnToLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				LoginUserInterface loginUserInterface = new LoginUserInterface();
+				loginUserInterface.setVisible(true);
+				RegisterUserInterface.this.setVisible(false);
+			}
+		});
 		btnToLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnToLogin.setBounds(120, 180, 120, 23);
 		contentPane.add(btnToLogin);
