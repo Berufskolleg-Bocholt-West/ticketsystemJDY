@@ -71,6 +71,9 @@ public class RegisterUserInterface extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				DBCon.insert(getGUIUsername(),getGUIPassword());
+				LoginUserInterface loginUserInterface = new LoginUserInterface();
+				loginUserInterface.setVisible(true);
+				RegisterUserInterface.this.setVisible(false);
 			}
 		});
 		btnRegister.setFont(new Font("Tahoma", Font.PLAIN, 14));
