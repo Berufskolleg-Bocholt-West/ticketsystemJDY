@@ -71,7 +71,7 @@ public class LoginUserInterface extends JFrame {
 		txtFUsername.setColumns(10);
 		
 		JLabel testLabel = new JLabel(" ");
-		testLabel.setBounds(120, 195, 89, 22);
+		testLabel.setBounds(12, 166, 89, 22);
 		contentPane.add(testLabel);
 		
 		JButton btnLogin = new JButton("Login");
