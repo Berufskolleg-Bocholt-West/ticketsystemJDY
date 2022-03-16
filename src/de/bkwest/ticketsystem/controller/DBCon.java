@@ -4,9 +4,7 @@ import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
 import de.bkwest.ticketsystem.model.User;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
