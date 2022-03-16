@@ -72,4 +72,18 @@ public class DBCon {
 	public static void setAllusers(ArrayList<User> allusers) {
 		DBCon.allusers = allusers;
 	}
+	public static void insert(String password, String username) {
+		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
+		String dbuser = "itam-root6";
+		String pass = "X~r3z7g5";
+		try {
+			Connection con = DriverManager.getConnection(url, dbuser, pass);
+			Statement st = con.createStatement();
+			String sql = ("Insert into User(username,password) values("+username+","+password+")");
+			st.executeUpdate(sql);
+			con.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

@@ -6,18 +6,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import de.bkwest.ticketsystem.controller.DBCon;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JPasswordField;
 
 public class RegisterUserInterface extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textUser;
+	private JPasswordField textPass;
 
 	/**
 	 * Launch the application.
@@ -47,15 +51,10 @@ public class RegisterUserInterface extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(120, 74, 120, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(120, 105, 120, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textUser = new JTextField();
+		textUser.setBounds(120, 74, 120, 20);
+		contentPane.add(textUser);
+		textUser.setColumns(10);
 		
 		JLabel lblNewUsername = new JLabel("Username:");
 		lblNewUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -68,6 +67,12 @@ public class RegisterUserInterface extends JFrame {
 		contentPane.add(lblNewPassword);
 		
 		JButton btnRegister = new JButton("Register");
+		btnRegister.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DBCon.insert(getGUIUsername(),getGUIPassword());
+			}
+		});
 		btnRegister.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnRegister.setBounds(120, 146, 120, 23);
 		contentPane.add(btnRegister);
@@ -84,5 +89,18 @@ public class RegisterUserInterface extends JFrame {
 		btnToLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnToLogin.setBounds(120, 180, 120, 23);
 		contentPane.add(btnToLogin);
+		
+		textPass = new JPasswordField();
+		textPass.setBounds(120, 105, 120, 20);
+		contentPane.add(textPass);
+	}
+	public String getGUIPassword() {
+		String password = new String(textPass.getPassword());
+		return password;
+	}
+
+	public String getGUIUsername() {
+		String username = textUser.getText();
+		return username;
 	}
 }
