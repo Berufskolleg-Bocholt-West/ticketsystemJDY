@@ -34,7 +34,13 @@ public class DBCon {
 			String sql = ("SELECT * FROM User;");
 			ResultSet rs = st.executeQuery(sql);
 			while(rs.next()) {
-				User users = new User(rs.getInt("userID"), rs.getString("username"), rs.getString("password"),rs.getBoolean("blocked"), rs.getInt("attempts"));
+				boolean blockedBool;
+				if(rs.getInt("blocked") == 1) {
+					blockedBool = true;
+				}else{
+					blockedBool = false;
+				}
+				User users = new User(rs.getInt("userID"), rs.getString("username"), rs.getString("password"),blockedBool, rs.getInt("attempts"));
 				allusers.add(users);
 			}
 			con.close();
