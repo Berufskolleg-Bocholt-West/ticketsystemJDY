@@ -16,9 +16,10 @@ public class LoginFunction {
 			}else if(u.getUsername().equals(usernameGUI)){
 				u.setAttempts(u.getAttempts()+1);
 				DBCon.updateDB(u.getUserID(), u.isBlocked(), u.getAttempts());
-			}else if(u.getAttempts()>=3) {
+			}if(u.getAttempts()>=3) {
 				u.setBlocked(true);
 				DBCon.updateDB(u.getUserID(), u.isBlocked(), u.getAttempts());
+				return output = "User is blocked!";
 			}
 		}
 		return output = "did not enter loop";
