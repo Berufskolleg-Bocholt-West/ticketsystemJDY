@@ -21,7 +21,8 @@ public class RegisterUserInterface extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textUser;
-	private JPasswordField textPass;
+	private JPasswordField passwordField;
+	private JPasswordField confirmPasswordField;
 
 	/**
 	 * Launch the application.
@@ -52,25 +53,25 @@ public class RegisterUserInterface extends JFrame {
 		contentPane.setLayout(null);
 		
 		textUser = new JTextField();
-		textUser.setBounds(120, 74, 120, 20);
+		textUser.setBounds(120, 43, 120, 20);
 		contentPane.add(textUser);
 		textUser.setColumns(10);
 		
 		JLabel lblNewUsername = new JLabel("Username:");
 		lblNewUsername.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewUsername.setBounds(35, 74, 66, 17);
+		lblNewUsername.setBounds(35, 43, 66, 17);
 		contentPane.add(lblNewUsername);
 		
 		JLabel lblNewPassword = new JLabel("Password:");
 		lblNewPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewPassword.setBounds(35, 102, 66, 22);
+		lblNewPassword.setBounds(35, 71, 66, 22);
 		contentPane.add(lblNewPassword);
 		
 		JButton btnRegister = new JButton("Register");
 		btnRegister.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				DBCon.insert(getGUIUsername(),getGUIPassword());
+				DBCon.insert(getGUIUsername(),getGUIPassword(),getGUIConfirmedPassword());
 				LoginUserInterface loginUserInterface = new LoginUserInterface();
 				loginUserInterface.setVisible(true);
 				RegisterUserInterface.this.setVisible(false);
@@ -93,17 +94,35 @@ public class RegisterUserInterface extends JFrame {
 		btnToLogin.setBounds(120, 180, 120, 23);
 		contentPane.add(btnToLogin);
 		
-		textPass = new JPasswordField();
-		textPass.setBounds(120, 105, 120, 20);
-		contentPane.add(textPass);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(120, 74, 120, 20);
+		contentPane.add(passwordField);
+		
+		confirmPasswordField = new JPasswordField();
+		confirmPasswordField.setBounds(120, 115, 120, 20);
+		contentPane.add(confirmPasswordField);
+		
+		JLabel lblConfirmPassword = new JLabel("Confirm ");
+		lblConfirmPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblConfirmPassword.setBounds(35, 102, 66, 22);
+		contentPane.add(lblConfirmPassword);
+		
+		JLabel lblNewPassword_1 = new JLabel("Password:");
+		lblNewPassword_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewPassword_1.setBounds(35, 120, 66, 22);
+		contentPane.add(lblNewPassword_1);
 	}
 	public String getGUIPassword() {
-		String password = new String(textPass.getPassword());
+		String password = new String(passwordField.getPassword());
 		return password;
 	}
 
 	public String getGUIUsername() {
 		String username = textUser.getText();
 		return username;
+	}
+	public String getGUIConfirmedPassword() {
+		String comfirmedPassword = new String(confirmPasswordField.getPassword());
+		return comfirmedPassword;
 	}
 }
