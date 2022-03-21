@@ -85,31 +85,38 @@ public class DBCon {
 	}
 
 
-	public static void insert(String username, String password, String confirmedPassword) {
+	public static String insert(String username, String password, String confirmedPassword) {
 		
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
 		String pass = "X~r3z7g5";
-		RegisterUserInterface registerUserInterface =new RegisterUserInterface();
+		String output;
 		try {
 			Connection con = DriverManager.getConnection(url, dbuser, pass);
 			Statement st = con.createStatement();
 			String sql = ("Insert into User(username,password) values("+username+","+password+");");
+			for (User u : DBCon.getAllusers()) {
+				if (u.getUsername().equals(username)) {
+					 System.out.println("User does already exist");
+					 return output = "";
+				}
+			}
 			if(confirmedPassword.equals(password) ) {
 				st.executeUpdate(sql);
-				System.out.println(confirmedPassword);
-				System.out.println(password);
-				JOptionPane.showMessageDialog(registerUserInterface, "Yey");
+				con.close();
+				System.out.println("Yey");
+				return output = "";
+				 
 			}	
 			else {
-				System.out.println(confirmedPassword);
-				System.out.println(password);
-				JOptionPane.showMessageDialog(registerUserInterface, "password does not match");
+				 System.out.println("Pasword does not match");
+				 return output = "";
 			}
-
-			con.close();
+			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		return output = "";
+		
 	}
 }

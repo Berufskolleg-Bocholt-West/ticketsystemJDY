@@ -3,7 +3,7 @@ package de.bkwest.ticketsystem.model;
 import java.sql.Date;
 
 public class Ticket {
-	private int id;
+	private int id;										
 	private int userId;
 	private String status;
 	private String title;
