@@ -83,7 +83,7 @@ public class DBCon {
 	public static void setAllusers(ArrayList<User> allusers) {
 		DBCon.allusers = allusers;
 	}
-	public static void insert(String password, String username, String confirmedPassword) {
+	public static void insert(String username, String password, String confirmedPassword) {
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
 		String pass = "X~r3z7g5";
@@ -91,7 +91,7 @@ public class DBCon {
 		try {
 			Connection con = DriverManager.getConnection(url, dbuser, pass);
 			Statement st = con.createStatement();
-			String sql = ("Insert into User(username,password) values("+username+","+password+")");
+			String sql = ("Insert into User(username,password) values("+username+","+password+");");
 			if(confirmedPassword == password) {
 				st.executeUpdate(sql);
 				JOptionPane.showMessageDialog(registerUserInterface, "Yey");
