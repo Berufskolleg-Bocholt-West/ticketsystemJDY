@@ -22,6 +22,7 @@ public class RegisterUserInterface extends JFrame {
 	private JPanel contentPane;
 	private JTextField textUser;
 	private JPasswordField textPass;
+	private JPasswordField confirmpasswordField;
 
 	/**
 	 * Launch the application.
@@ -70,7 +71,7 @@ public class RegisterUserInterface extends JFrame {
 		btnRegister.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				DBCon.insert(getGUIUsername(),getGUIPassword());
+				DBCon.insert(getGUIUsername(),getGUIPassword(),getconfirmedPassword());
 				LoginUserInterface loginUserInterface = new LoginUserInterface();
 				loginUserInterface.setVisible(true);
 				RegisterUserInterface.this.setVisible(false);
@@ -96,6 +97,15 @@ public class RegisterUserInterface extends JFrame {
 		textPass = new JPasswordField();
 		textPass.setBounds(120, 105, 120, 20);
 		contentPane.add(textPass);
+		
+		JLabel lblConfirm = new JLabel("confirm");
+		lblConfirm.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblConfirm.setBounds(35, 36, 66, 17);
+		contentPane.add(lblConfirm);
+		
+		confirmpasswordField = new JPasswordField();
+		confirmpasswordField.setBounds(120, 36, 120, 20);
+		contentPane.add(confirmpasswordField);
 	}
 	public String getGUIPassword() {
 		String password = new String(textPass.getPassword());
@@ -105,5 +115,9 @@ public class RegisterUserInterface extends JFrame {
 	public String getGUIUsername() {
 		String username = textUser.getText();
 		return username;
+	}
+	public String getconfirmedPassword() {
+		String confirmedPassword = new String(confirmpasswordField.getPassword());
+		return confirmedPassword;
 	}
 }

@@ -1,10 +1,15 @@
 package de.bkwest.ticketsystem.controller;
 
 import java.util.*;
+
+import javax.swing.JOptionPane;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import de.bkwest.ticketsystem.model.User;
+import de.bkwest.ticketsystem.view.RegisterUserInterface;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -78,32 +83,30 @@ public class DBCon {
 	public static void setAllusers(ArrayList<User> allusers) {
 		DBCon.allusers = allusers;
 	}
-<<<<<<< HEAD
+
+
 	public static void insert(String username, String password, String confirmedPassword) {
-=======
-	public static void insert(String password, String username) {
->>>>>>> parent of 8f59a6d (+ Confirm Password)
+		
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
 		String pass = "X~r3z7g5";
+		RegisterUserInterface registerUserInterface =new RegisterUserInterface();
 		try {
 			Connection con = DriverManager.getConnection(url, dbuser, pass);
 			Statement st = con.createStatement();
-<<<<<<< HEAD
 			String sql = ("Insert into User(username,password) values("+username+","+password+");");
-			if(confirmedPassword == password) {
+			if(confirmedPassword.equals(password) ) {
 				st.executeUpdate(sql);
-				JOptionPane.showMessageDialog(registerUserInterface, "Yey");
 				System.out.println(confirmedPassword);
 				System.out.println(password);
+				JOptionPane.showMessageDialog(registerUserInterface, "Yey");
 			}	
 			else {
+				System.out.println(confirmedPassword);
+				System.out.println(password);
 				JOptionPane.showMessageDialog(registerUserInterface, "password does not match");
 			}
-=======
-			String sql = ("Insert into User(username,password) values("+username+","+password+")");
-			st.executeUpdate(sql);
->>>>>>> parent of 8f59a6d (+ Confirm Password)
+
 			con.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
