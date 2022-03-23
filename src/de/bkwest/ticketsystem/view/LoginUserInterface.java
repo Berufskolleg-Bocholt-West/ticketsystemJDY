@@ -79,10 +79,10 @@ public class LoginUserInterface extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(LoginFunction.compare(getGUIUsername(),getGUIPassword())) {
-					TicketUserInterface ticketUserInterface = new TicketUserInterface();
+					MainMenuUserInterface mainMenuUserInterface = new MainMenuUserInterface();
 					RegisterUserInterface registerUserInterface =new RegisterUserInterface();
 					registerUserInterface.setVisible(false);
-					ticketUserInterface.setVisible(true);
+					mainMenuUserInterface.setVisible(true);
 					LoginUserInterface.this.setVisible(false);
 				}
 			}
