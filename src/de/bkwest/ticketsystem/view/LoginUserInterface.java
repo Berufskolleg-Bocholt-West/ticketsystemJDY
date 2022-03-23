@@ -78,11 +78,13 @@ public class LoginUserInterface extends JFrame {
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				TicketUserInterface ticketUserInterface = new TicketUserInterface();
-				RegisterUserInterface registerUserInterface =new RegisterUserInterface();
-				registerUserInterface.setVisible(false);
-				ticketUserInterface.setVisible(true);
-				LoginUserInterface.this.setVisible(false);
+				if(LoginFunction.compare(getGUIUsername(),getGUIPassword())) {
+					TicketUserInterface ticketUserInterface = new TicketUserInterface();
+					RegisterUserInterface registerUserInterface =new RegisterUserInterface();
+					registerUserInterface.setVisible(false);
+					ticketUserInterface.setVisible(true);
+					LoginUserInterface.this.setVisible(false);
+				}
 			}
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
