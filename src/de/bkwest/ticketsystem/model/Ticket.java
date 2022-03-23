@@ -6,15 +6,16 @@ public class Ticket {
 	private int id;										
 	private String status;
 	private String title;
+	private String discription;
 	private Date start;
 	private Date end;
 	
-	public Ticket(int id, String status, String title, String discrition, Date start, Date end) {
+	public Ticket(int id, String status, String title, String discription, Date start, Date end) {
 		super();
 		this.id = id;
 		this.status = status;
 		this.title = title;
-		this.discription = discrition;
+		this.discription = discription;
 		this.start = start;
 		this.end = end;
 	}
@@ -25,6 +26,7 @@ public class Ticket {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getStatus() {
 		return status;
 	}
@@ -37,11 +39,11 @@ public class Ticket {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDiscrition() {
+	public String getDiscription() {
 		return discription;
 	}
-	public void setDiscrition(String discrition) {
-		this.discription = discrition;
+	public void setDiscription(String discription) {
+		this.discription = discription;
 	}
 	public Date getStart() {
 		return start;
