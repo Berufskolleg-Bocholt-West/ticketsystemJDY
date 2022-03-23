@@ -7,20 +7,22 @@ import de.bkwest.ticketsystem.model.User;
 
 public class LoginFunction {
 
-	public static String compare(String usernameGUI, String passwordGUI) {
-		String output;
+	public static boolean compare(String usernameGUI, String passwordGUI) {
+		boolean output;
 		for (User u : DBCon.getAllusers()) {
 			if (u.getUsername().equals(usernameGUI) && u.getPassword().equals(passwordGUI) && u.isBlocked() == false) {
-				return output = "success";
+				System.out.println("User Successfully logged in.");
+				return output = true;
 			} else if (u.getUsername().equals(usernameGUI) && u.isBlocked() == false) {
 				u.setAttempts(u.getAttempts() + 1);
 				DBCon.updateDB(u.getUserID(), u.isBlocked(), u.getAttempts());
 			} else if (u.getAttempts() >= 3 && u.isBlocked() == false) {
 				u.setBlocked(true);
 				DBCon.updateDB(u.getUserID(), u.isBlocked(), u.getAttempts());
-				return output = "User is blocked!";
+				System.out.println("Login unsuccesful.");
+				return output = false;
 			}
 		}
-		return output = "No user in Arraylist :(";
+		return output = false;
 	}
 }

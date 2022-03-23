@@ -78,7 +78,9 @@ public class LoginUserInterface extends JFrame {
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				testLabel.setText(LoginFunction.compare(getGUIUsername(),getGUIPassword()));
+				TicketUserInterface ticketUserInterface = new TicketUserInterface();
+				ticketUserInterface.setVisible(true);
+				LoginUserInterface.this.setVisible(false);
 			}
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
