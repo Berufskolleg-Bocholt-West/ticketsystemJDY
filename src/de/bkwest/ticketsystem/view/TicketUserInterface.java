@@ -59,7 +59,11 @@ public class TicketUserInterface extends JFrame {
 		lblTitle.setBounds(10, 11, 81, 20);
 		contentPane.add(lblTitle);
 		
-		JScrollPane jspDiscriptionFild = new JScrollPane();
+		JTextPane textPaneDiscriptionFild = new JTextPane();
+		textPaneDiscriptionFild.setBounds(10, 120, 988, 342);
+		contentPane.add(textPaneDiscriptionFild);
+		
+		JScrollPane jspDiscriptionFild = new JScrollPane(textPaneDiscriptionFild);
 		jspDiscriptionFild.setBounds(10, 120, 988, 342);
 		contentPane.add(jspDiscriptionFild);
 		
@@ -71,6 +75,7 @@ public class TicketUserInterface extends JFrame {
 		JButton btnSave = new JButton("Save");
 		btnSave.setBounds(844, 28, 154, 51);
 		contentPane.add(btnSave);
+		
 		
 	}
 }

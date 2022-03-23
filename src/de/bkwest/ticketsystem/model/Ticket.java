@@ -6,7 +6,6 @@ public class Ticket {
 	private int id;										
 	private String status;
 	private String title;
-	private String discription;
 	private Date start;
 	private Date end;
 	
