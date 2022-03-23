@@ -54,7 +54,7 @@ public class DBCon {
 			System.out.println(e.getMessage());
 		}
 	}
-	public static void updateDB(int userID, boolean blocked, int attempts) {
+	public static void updateUserTable(int userID, boolean blocked, int attempts) {
 		//opoipopo
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
@@ -85,8 +85,7 @@ public class DBCon {
 	}
 
 
-	public static String insert(String username, String password, String confirmedPassword) {
-		
+	public static String insertUser(String username, String password, String confirmedPassword) {
 		String url = "jdbc:mysql://45.81.232.17/itam-gruppe6";
 		String dbuser = "itam-root6";
 		String pass = "X~r3z7g5";
@@ -105,18 +104,18 @@ public class DBCon {
 				st.executeUpdate(sql);
 				con.close();
 				System.out.println("Yey");
-				return output = "";
-				 
+				return output = ""; 
 			}	
 			else {
 				 System.out.println("Pasword does not match");
 				 return output = "";
 			}
-			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 		return output = "";
+	}
+	public static void insertTicket(int UserID ) {
 		
 	}
 }

@@ -15,10 +15,10 @@ public class LoginFunction {
 				return output = true;
 			} else if (u.getUsername().equals(usernameGUI) && u.isBlocked() == false) {
 				u.setAttempts(u.getAttempts() + 1);
-				DBCon.updateDB(u.getUserID(), u.isBlocked(), u.getAttempts());
+				DBCon.updateUserTable(u.getUserID(), u.isBlocked(), u.getAttempts());
 			} else if (u.getAttempts() >= 3 && u.isBlocked() == false) {
 				u.setBlocked(true);
-				DBCon.updateDB(u.getUserID(), u.isBlocked(), u.getAttempts());
+				DBCon.updateUserTable(u.getUserID(), u.isBlocked(), u.getAttempts());
 				System.out.println("Login unsuccesful.");
 				return output = false;
 			}

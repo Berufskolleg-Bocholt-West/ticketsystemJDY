@@ -71,7 +71,7 @@ public class RegisterUserInterface extends JFrame {
 		btnRegister.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				DBCon.insert(getGUIUsername(),getGUIPassword(),getconfirmedPassword());
+				DBCon.insertUser(getGUIUsername(),getGUIPassword(),getconfirmedPassword());
 				LoginUserInterface loginUserInterface = new LoginUserInterface();
 				loginUserInterface.setVisible(true);
 				RegisterUserInterface.this.setVisible(false);
