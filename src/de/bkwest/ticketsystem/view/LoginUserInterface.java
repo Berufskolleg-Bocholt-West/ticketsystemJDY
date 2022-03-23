@@ -79,6 +79,8 @@ public class LoginUserInterface extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				TicketUserInterface ticketUserInterface = new TicketUserInterface();
+				RegisterUserInterface registerUserInterface =new RegisterUserInterface();
+				registerUserInterface.setVisible(false);
 				ticketUserInterface.setVisible(true);
 				LoginUserInterface.this.setVisible(false);
 			}
