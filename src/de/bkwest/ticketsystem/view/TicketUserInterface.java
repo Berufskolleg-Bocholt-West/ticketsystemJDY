@@ -5,15 +5,21 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JEditorPane;
+import javax.swing.JTextPane;
+import javax.swing.JButton;
 
 public class TicketUserInterface extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textFieldTitle;
+	private JLabel lblDiscription;
 
 	/**
 	 * Launch the application.
@@ -42,15 +48,29 @@ public class TicketUserInterface extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		textField.setBounds(10, 36, 512, 32);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldTitle = new JTextField();
+		textFieldTitle.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textFieldTitle.setBounds(10, 36, 512, 32);
+		contentPane.add(textFieldTitle);
+		textFieldTitle.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Title:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(10, 11, 81, 20);
-		contentPane.add(lblNewLabel);
+		JLabel lblTitle = new JLabel("Title:");
+		lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTitle.setBounds(10, 11, 81, 20);
+		contentPane.add(lblTitle);
+		
+		JScrollPane jspDiscriptionFild = new JScrollPane();
+		jspDiscriptionFild.setBounds(10, 120, 988, 342);
+		contentPane.add(jspDiscriptionFild);
+		
+		lblDiscription = new JLabel("Discription:");
+		lblDiscription.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDiscription.setBounds(10, 89, 81, 20);
+		contentPane.add(lblDiscription);
+		
+		JButton btnSave = new JButton("Save");
+		btnSave.setBounds(844, 28, 154, 51);
+		contentPane.add(btnSave);
+		
 	}
 }
