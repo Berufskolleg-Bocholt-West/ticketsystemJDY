@@ -6,6 +6,7 @@ public class User {
 	private String password;
 	private boolean blocked;
 	private int attempts;
+
 	
 	public int getUserID() {
 		return userID;
@@ -45,16 +46,6 @@ public class User {
 		this.password = password;
 		this.blocked = blocked;
 		this.attempts = attempts;
-	}
-	
-	public void createTicket() {
-		
-	}
-	
-	public void changeStatus() {
-			
-	}
-	public void createComment() {
 		
 	}
 }

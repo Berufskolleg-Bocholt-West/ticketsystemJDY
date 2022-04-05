@@ -100,19 +100,19 @@ public class LoginUserInterface extends JFrame {
 		passField.setBounds(120, 105, 120, 20);
 		contentPane.add(passField);
 		
-		JButton btnToRegister = new JButton("To Register");
-		btnToRegister.addMouseListener(new MouseAdapter() {
+		JButton btnToMain = new JButton("To Main");
+		btnToMain.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				RegisterUserInterface registerUserInterface =new RegisterUserInterface();
-				registerUserInterface.setVisible(true);
+				MainMenuUserInterface mainMenuUserInterface = new MainMenuUserInterface();
+				mainMenuUserInterface.setVisible(true);
 				LoginUserInterface.this.setVisible(false);
 				
 			}
 		});
-		btnToRegister.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnToRegister.setBounds(120, 180, 120, 23);
-		contentPane.add(btnToRegister);
+		btnToMain.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnToMain.setBounds(120, 180, 120, 23);
+		contentPane.add(btnToMain);
 		
 	}
 

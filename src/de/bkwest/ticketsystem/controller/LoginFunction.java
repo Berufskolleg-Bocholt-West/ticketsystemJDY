@@ -7,12 +7,15 @@ import de.bkwest.ticketsystem.model.User;
 
 public class LoginFunction {
 	
+	
+	
 	public static boolean compare(String usernameGUI, String passwordGUI) {
 		int i = 0;
 		boolean output;
 		for (User u : DBCon.getAllusers()) {
 			if (u.getUsername().equals(usernameGUI) && u.getPassword().equals(passwordGUI) && !u.isBlocked()) {
 				JOptionPane.showMessageDialog(null, "Login successful");
+				
 				return output = true;
 			} else if (u.getUsername().equals(usernameGUI) && !u.getPassword().equals(passwordGUI) && u.getAttempts() < 3 && !u.isBlocked()) {
 				u.setAttempts(u.getAttempts() + 1);

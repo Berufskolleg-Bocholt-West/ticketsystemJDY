@@ -14,6 +14,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JEditorPane;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TicketUserInterface extends JFrame {
 
@@ -73,8 +75,23 @@ public class TicketUserInterface extends JFrame {
 		contentPane.add(lblDiscription);
 		
 		JButton btnSave = new JButton("Save");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSave.setBounds(844, 28, 154, 51);
 		contentPane.add(btnSave);
+		
+		JButton btnBackToMain = new JButton("Back");
+		btnBackToMain.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainMenuUserInterface mainMenuUserInterface = new MainMenuUserInterface();
+				mainMenuUserInterface.setVisible(true);
+				TicketUserInterface.this.setVisible(false);
+			}
+		});
+		btnBackToMain.setBounds(680, 28, 154, 51);
+		contentPane.add(btnBackToMain);
 		
 		
 	}
